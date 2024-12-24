@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     const { text } = body;
     console.log(text)
     const sql = neon(process.env.DATABASE_URL!);
-
+    console.log(process.env.DATABASE_URL)
     const apiSecret = request.headers.get("X-API-SECRET");
     if(apiSecret !== process.env.API_KEY){
       console.log("unauthorized")
@@ -39,6 +39,7 @@ export async function POST(request: Request) {
     }
 
     const imageBuffer = await response.arrayBuffer();
+    console.log(imageBuffer)
 
     const filename = `${crypto.randomUUID()}.jpg`
 
@@ -47,14 +48,16 @@ export async function POST(request: Request) {
       contentType: "image/jpeg"
     })
 
-
+    console.log(blob)
+    
     const data = await sql`
     INSERT INTO images (name, value) 
     VALUES (${blob.url}, ${text})
     RETURNING id;
     `;
+    console.log(data)
     const insertedId = data[0].id;
-
+    console.log(insertedId)
     
 
     return NextResponse.json({
@@ -64,7 +67,7 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     return NextResponse.json(
-      { success: false, error: "Failed to process request" },
+      { success: false, error: error },
       { status: 500 }
     );
   }

@@ -10,6 +10,7 @@ interface ImageGeneratedProps {
     error?: string;
     id?: number;
   }>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getImages: () => Promise<Record<string, any>[] | undefined>;
 }
 
@@ -25,7 +26,6 @@ export default function ImageGenerated({
 }: ImageGeneratedProps) {
   const [inputText, setInputText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [images, setImages] = useState<ImageGen[]>([]);
 
   const handleSubmit = async (e: React.FormEvent) => {

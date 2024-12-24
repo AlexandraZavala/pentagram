@@ -10,7 +10,7 @@ export async function generateImage(text: string){
             },
             body: JSON.stringify({text})
         });
-
+        console.log(response)
         if(!response.ok){
             throw new Error(`HTTP error! status: ${response.status}`)
         }
