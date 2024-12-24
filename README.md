@@ -1,45 +1,26 @@
-# Pentagram: Instagram, but with AI Images
+# Picasso: Realtime Image Diffusion
 
-## Getting Started
+Picasso is a web application that enables users to generate stunning images from text prompts, and explore generated content seamlessly. Powered by serverless GPUs and modern web technologies, it ensures low-latency performance and an engaging user experience.
 
-First, clone the GitHub repository:
+---
 
-```bash
-git clone https://github.com/team-headstart/pentagram.git
-```
+## 🚀 Features
 
-Then, navigate to the project directory:
+- **Text-to-Image Generation**: Leverages sdxl-turbo model to create images from text prompts.
+- **Smooth Performance**: Hosted on serverless GPUs via Modal for low-latency processing.
+- **Image Management**: Easily view and manage generated creations.
 
-```bash
-cd pentagram
-```
+### Future Enhancements:
+- User authentication.
+- Semantic search for images.
+- Additional social interactions (e.g., reactions, tagging).
 
-Then, install the dependencies:
+---
 
-```bash
-npm install
-```
+## 🛠️ Tech Stack
 
-Run the development server:
+- **Frontend**: React, TypeScript, Next.js
+- **Backend**: Modal (serverless GPUs for hosting sdxl-turbo): https://github.com/AlexandraZavala/back-gram
+- **Deployment**: Vercel
 
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Tasks
-
-- Take a look at the TODOs in the repo, namely:
-
-    - `src/app/page.tsx`: This is where the user can input their prompt and generate an image. Make sure to update the UI and handle the API response to display the images generated
-
-    - `src/app/api/generate-image/route.ts`: This is where the image generation API is implemented. Make sure to call your image generation API from Modal here
-
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
